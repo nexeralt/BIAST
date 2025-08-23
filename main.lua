@@ -1559,7 +1559,7 @@ end; })
 
 PremiumFeatures:CreateSection("Money Farm $o$")
 
-PremiumFeatures("For this to work, go to your friend/alt/afk contractee as slacker, this contractee SHOULD NOT MOVE!! Then stand like 6 studs away from him, and also your body have to look at him! Then press this button below, remember, it will lag a lot and you have only 1 chance. If succeeded, you get up to 5000 money.")
+PremiumFeatures:CreateLabel("For this to work, go to your friend/alt/afk contractee as slacker, this contractee SHOULD NOT MOVE!! Then stand like 6 studs away from him, and also your body have to look at him! Then press this button below, remember, it will lag a lot and you have only 1 chance. If succeeded, you get up to 5000 money.")
 
 PremiumFeatures:CreateButton({Name = "Use slacker rush 1000 times"; Callback = function()
 if HavePremium() ~= true then
