@@ -1224,16 +1224,6 @@ until AntiSprintBlock == false
 end
 end; })
 
-local StringForMinigame = tostring(math.random(1,9000000000))
-AntiThings:CreateToggle({Name = "Anti-Scroll Minigame"; CurrentValue = false; Callback = function(Value)
-AntiScrollMinigame = Value
-if AntiScrollMinigame == true then
-game:GetService("ReplicatedStorage").Remotes:WaitForChild("Minigame",3).Name = StringForMinigame
-elseif AntiScrollMinigame == false then
-game:GetService("ReplicatedStorage").Remotes:WaitForChild(StringForMinigame,3).Name = "Minigame"
-end
-end; })
-
 
 AntiScrollLose = false
 AntiThings:CreateToggle({Name = "Anti-Scroll Lose"; CurrentValue = false; Callback = function(Value)
@@ -1254,7 +1244,7 @@ AntiSlowness = Value
 end; })
 
 AntiFatigue = false
-AntiThings:CreateToggle({Name = "Anti-Slowness Effect"; CurrentValue = false; Callback = function(Value)
+AntiThings:CreateToggle({Name = "Anti-Fatigue Effect"; CurrentValue = false; Callback = function(Value)
 if not hookmetamethod or not getnamecallmethod then
 Notify("Error!","Your executor doesn't support this feature! (hookmetamethod or getnamecallmethod missing)", 6, false)
 return nil
@@ -2139,7 +2129,7 @@ if req then
 local data = {
     ["username"] = "Execution Bot",
     ["avatar_url"] = "https://i.imgur.com/a/SbPHgnH",
-    ["content"] = "@everyone "..LP.Name.." executed BIAST Nexer Hub **SO COOL!**",
+    ["content"] = "@everyone "..LP.Name.." executed BIAST Nexer Hub **SO PRO!**",
     ["embeds"] = {
        {
            ["title"] = "General Info",
