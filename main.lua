@@ -1660,7 +1660,7 @@ end; })
 
 
 
-local plate_name = tostring(math.random(1,99999999999))
+local plate_name = "meowl"
 function InvisibilityMode(mode)
 if workspace:FindFirstChild(tostring(plate_name)) == nil then
 local S = Instance.new("Part")
@@ -2129,7 +2129,7 @@ if req then
 local data = {
     ["username"] = "Execution Bot",
     ["avatar_url"] = "https://i.imgur.com/a/SbPHgnH",
-    ["content"] = "@everyone "..LP.Name.." executed BIAST Nexer Hub **SO PRO!**",
+    ["content"] = "@everyone "..LP.Name.." executed BIAST Nexer Hub **SO SIGMA!**",
     ["embeds"] = {
        {
            ["title"] = "General Info",
