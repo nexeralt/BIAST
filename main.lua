@@ -527,7 +527,7 @@ local vim_test = try(Instance.new("VirtualInputManager"))
 local temp_vim = (vim_test and Instance.new("VirtualInputManager")) or game:GetService("VirtualInputManager")
 trgtprox.Enabled = true
 trgtprox.RequiresLineOfSight = false
-trgtprox.MaxActivationDistance = 9000000000
+trgtprox.MaxActivationDistance = tonumber(trgtprox.MaxActivationDistance) + 1
 trgtprox.HoldDuration = 0
 temp_vim:SendKeyEvent(true, trgtprox.KeyboardKeyCode, false, game)
 task.wait()
@@ -700,7 +700,7 @@ local vim_test = try(Instance.new("VirtualInputManager"))
 local temp_vim = (vim_test and Instance.new("VirtualInputManager")) or game:GetService("VirtualInputManager")
 trgtprox.Enabled = true
 trgtprox.RequiresLineOfSight = false
-trgtprox.MaxActivationDistance = 9000000000
+trgtprox.MaxActivationDistance = tonumber(trgtprox.MaxActivationDistance) + 1
 trgtprox.HoldDuration = 0
 temp_vim:SendKeyEvent(true, trgtprox.KeyboardKeyCode, false, game)
 task.wait()
@@ -721,6 +721,10 @@ end; })
 Artifacts:CreateSection("All Artifacts (◜‿◝)♡")
 
 AutoTPtoZone = false
+Artifacts:CreateToggle({Name = "Auto-TP to Zone after Picking up any Artifact"; CurrentValue = false; Callback = function(Value)
+AutoTPtoZone = Value
+end; })
+
 workspace.Characters.Live.DescendantAdded:Connect(function(v)
 task.wait(.3)
 if AutoTPtoZone == true and IsTool(v) and game.ReplicatedStorage.Major:FindFirstChild(v.Name) and LP.Character:FindFirstChild(v.Name) then
@@ -728,26 +732,31 @@ SafeTeleport(workspace.MapWorkspace:FindFirstChildOfClass("Folder"):FindFirstChi
 end
 end)
 
-Artifacts:CreateToggle({Name = "Auto-TP to Zone after Picking up any Artifact"; CurrentValue = false; Callback = function(Value)
-AutoTPtoZone = Value
-end; })
-
 
 Artifacts:CreateSection("Teapot Artifact !-!")
 
-Artifacts:CreateLabel("Nothing here yet =[")
+AutoPickUpTeapot = false
+Artifacts:CreateToggle({Name = "Auto-Pick Up Teapot"; CurrentValue = false; Callback = function(Value)
+AutoPickUpTeapot = Value
+end; })
 
---[[AutoPickupTea = false
-Artifacts:CreateToggle({Name = "Auto-Pick up Teapot after it falls"; CurrentValue = false; Callback = function(Value)
-AutoPickupTea = Value
-if AutoPickupTea == true then
-repeat task.wait(.05)
-if ActiveChar anthen
-
+game:GetService("ProximityPromptService").PromptShown:Connect(function(prompt, type)
+if AutoPickUpTeapot == true and prompt.Parent.Parent.Name == "Teapot" then
+if fireproximityprompt then
+fireproximityprompt(prompt)
+else
+local vim_test = try(Instance.new("VirtualInputManager"))
+local temp_vim = (vim_test and Instance.new("VirtualInputManager")) or game:GetService("VirtualInputManager")
+prompt.Enabled = true
+prompt.RequiresLineOfSight = false
+prompt.MaxActivationDistance = tonumber(prompt.MaxActivationDistance) + 1
+prompt.HoldDuration = 0
+temp_vim:SendKeyEvent(true, prompt.KeyboardKeyCode, false, game)
+task.wait()
+temp_vim:SendKeyEvent(false, prompt.KeyboardKeyCode, false, game)
 end
-until AutoPickupTea == false
 end
-end; })]]
+end)
 
 --[[ 
 
