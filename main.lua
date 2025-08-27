@@ -674,7 +674,7 @@ if not LP.Character or not LP.Character:FindFirstChild("Head") then
 Notify("Error!", "You are either dead or in menu!", 4, false)
 return nil
 end
-if ChoosenAvailableItem == nil or ChoosenAvailableItem == "" or not ChoosenAvailableItem then
+if ChoosenAvailableArtifact == nil or ChoosenAvailableArtifact == "" or not ChoosenAvailableArtifact then
 Notify("Error!", "Choose your target!", 3, false)
 return nil
 end
