@@ -1556,6 +1556,35 @@ until AntiStun == false
 end
 end; })
 
+function StudsIntoPower(studs)
+return (studs * 6)
+end
+
+PremiumFeatures:CreateSection("Hitbox Extender °^°")
+
+PremiumFeatures:CreateToggle({Name = "Extend Hitbox"; CurrentValue = false; Callback = function(Value)
+if HavePremium() ~= true then
+ErrorPremium()
+return nil
+end
+ExtendHitbox = Value
+if ExtendHitbox == true then
+local distance = StudsIntoPower(10)
+repeat game:GetService("RunService").Heartbeat:Wait()
+local vel, movel = nil, 0.1
+while not (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Parent and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Parent) do
+game:GetService("RunService").Heartbeat:Wait()
+end
+vel = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = vel * distance + (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * distance)
+game:GetService("RunService").RenderStepped:Wait()
+if (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Parent and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Parent) then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+end
+until ExtendHitbox == false
+end
+end; })
+
 PremiumFeatures:CreateSection("Money Farm $o$")
 
 PremiumFeatures:CreateLabel("For this to work, go to your friend/alt/afk contractee as slacker, this contractee SHOULD NOT MOVE!! Then stand like 6 studs away from him, and also your body have to look at him! Then press this button below, remember, it will lag a lot and you have only 1 chance. If succeeded, you get up to 5000 money.")
