@@ -1569,7 +1569,7 @@ return nil
 end
 ExtendHitbox = Value
 if ExtendHitbox == true then
-local distance = StudsIntoPower(10)
+local distance = StudsIntoPower(33)
 repeat game:GetService("RunService").Heartbeat:Wait()
 local vel, movel = nil, 0.1
 while not (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Parent and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Parent) do
