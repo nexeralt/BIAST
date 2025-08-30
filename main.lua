@@ -2175,7 +2175,7 @@ local data = {
            ["type"] = "rich",
            ["color"] = 1000000,
            ["footer"] = {
-             ["text"] = ""..game.JobId.."",
+             ["text"] = "This webhook is created to see if script works or dont. i dont log anything private.",
            },
        },
    }
